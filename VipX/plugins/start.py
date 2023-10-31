@@ -44,7 +44,7 @@ async def start_comm(client, message: Message, _):
         name = message.text.split(None, 1)[1]
         if name[0:4] == "help":
             keyboard = help_pannel(_)
-            await message.reply_sticker("CAACAgEAAxkBAAEIS2FkHfJQpbvRTfhyfS67BxulycCtegAC-gADUSkNORIJSVEUKRrhLwQ")
+            await message.reply_sticker("CAACAgEAAxkBAAIsNmVBN4Kb5YhXgJuOq_oKH1Abp-KSAAIrAgACIk8hRA8-ZYEyA3wDMwQ")
             return await message.reply_photo(
                        photo=config.START_IMG_URL,
                        caption=_["help_1"].format(config.SUPPORT_HEHE), reply_markup=keyboard
@@ -53,7 +53,7 @@ async def start_comm(client, message: Message, _):
             return await message.reply_text(_["song_2"])
         if name[0:3] == "sta":
             m = await message.reply_text(
-                f"🥱 𝐆𝐞𝐭𝐭𝐢𝐧𝐠 𝐘𝐨𝐮𝐫 𝐏𝐞𝐫𝐬𝐨𝐧𝐚𝐥 𝐒𝐭𝐚𝐭𝐬 𝐅𝐫𝐨𝐦 {config.MUSIC_BOT_NAME} sᴇʀᴠᴇʀ."
+                f"✨ ɢᴇᴛᴛɪɴɢ ʏᴏᴜʀ ᴘᴇʀsᴏɴᴀʟ sᴛᴀᴛs {config.MUSIC_BOT_NAME} sᴇʀᴠᴇʀ."
             )
             stats = await get_userss(message.from_user.id)
             tot = len(stats)
@@ -89,7 +89,7 @@ async def start_comm(client, message: Message, _):
                     details = stats.get(vidid)
                     title = (details["title"][:35]).title()
                     if vidid == "telegram":
-                        msg += f"🔗[ᴛᴇʟᴇɢʀᴀᴍ ᴍᴇᴅɪᴀ](https://t.me/TG_FRIENDSS) ** ᴩʟᴀʏᴇᴅ {count} ᴛɪᴍᴇs**\n\n"
+                        msg += f"🔗[ᴛᴇʟᴇɢʀᴀᴍ ᴍᴇᴅɪᴀ](https://t.me/venom_world_chatting_club) ** ᴩʟᴀʏᴇᴅ {count} ᴛɪᴍᴇs**\n\n"
                     else:
                         msg += f"🔗 [{title}](https://www.youtube.com/watch?v={vidid}) ** played {count} times**\n\n"
                 msg = _["ustats_2"].format(tot, tota, limit) + msg
@@ -113,7 +113,7 @@ async def start_comm(client, message: Message, _):
                 sender_name = message.from_user.first_name
                 return await app.send_message(
                     config.LOG_GROUP_ID,
-                    f"{message.from_user.mention} 𝐉𝐮𝐬𝐭 𝐒𝐭𝐚𝐫𝐭𝐞𝐝 𝐓𝐡𝐞 𝐕𝐢𝐩 𝐁𝐨𝐭 𝐓𝐨 𝐂𝐡𝐞𝐜𝐤 𝐒𝐨𝐧𝐠 𝐈𝐧𝐟𝐨 <code>𝐒𝐮𝐝𝐨𝐥𝐢𝐬𝐭</code>\n\n**𝐔𝐒𝐄𝐑 𝐈𝐃:-** {sender_id}\n**𝐍𝐀𝐌𝐄:-** {sender_name}",
+                    f"{message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛʜᴇ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ sᴏɴɢ ɪɴғᴏ <code>𝐒𝐮𝐝𝐨𝐥𝐢𝐬𝐭</code>\n\n**ᴜsᴇʀ-ɪᴅ:-** {sender_id}\n**ɴᴀᴍᴇ:-** {sender_name}",
                 )
             return
         if name[0:3] == "lyr":
@@ -124,7 +124,7 @@ async def start_comm(client, message: Message, _):
                 return await Telegram.send_split_text(message, lyrics)
             else:
                 return await message.reply_text(
-                    "𝐅𝐚𝐢𝐥𝐞𝐝 𝐓𝐨 𝐆𝐞𝐭 𝐋𝐲𝐫𝐢𝐜𝐬🥺 𝐓𝐫𝐲 𝐀𝐠𝐚𝐢𝐧 𝐏𝐥𝐞𝐚𝐬𝐞🥀."
+                    "ғᴀɪʟᴇᴅ ᴛᴏ ɢᴇᴛ ʟʏʀɪᴄs 🥺 ᴛʀʏ ᴀɢᴀɪɴ ᴘʟᴇᴀsᴇ 🥀."
                 )
         if name[0:3] == "del":
             await del_plist_msg(client=client, message=message, _=_)
@@ -139,7 +139,7 @@ async def start_comm(client, message: Message, _):
                 )
             return
         if name[0:3] == "inf":
-            m = await message.reply_text("🥀𝐒𝐞𝐚𝐫𝐜𝐡𝐢𝐧𝐠 𝐅𝐨𝐫 𝐮𝐡....")
+            m = await message.reply_text("🥀sᴇᴀʀᴄʜɪɴɢ ғᴏʀ ᴜʜ....")
             query = (str(name)).replace("info_", "", 1)
             query = f"https://www.youtube.com/watch?v={query}"
             results = VideosSearch(query, limit=1)
@@ -155,33 +155,33 @@ async def start_comm(client, message: Message, _):
                 link = result["link"]
                 published = result["publishedTime"]
             searched_text = f"""
-ㅤㅤ**🔔 ❰ 𝐒ᴏɴɢ🎙𝐈ɴғᴏʀᴍᴀᴛɪᴏɴ ❱ 🔔**
+ㅤㅤ**🔔 ❰ sᴏɴɢ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ❱ 🔔**
         
 ★•.¸¸♡¸¸.•*¨*•☆•*♫*•.¸¸♡¸¸.•*☆*•.¸¸♡¸¸.•★
-● 🎸 **𝐍𝐚𝐦𝐞 ➪ [{title}]({link})**　　
+● 🎸 **ɴᴀᴍᴇ ➪ [{title}]({link})**　　
 ★ 　° :. ★　 ♫ • ○ ° ★ ☆ . * ● ¸ .✦ .✮
-● 💽 **𝐃𝐮𝐫𝐚𝐭𝐢𝐨𝐧 ➪ [{duration} ᴍɪɴ.]({link})**☆¸¸♡¸¸★
+● 💽 **ᴅᴜʀᴀᴛɪᴏɴ ➪ [{duration} ᴍɪɴ.]({link})**☆¸¸♡¸¸★
 ★ 　° :. ★　 ♫ • ○ ° ★ ☆ . * ● ¸ .✦ .❊
-● 🕹 **𝐕𝐢𝐞𝐰𝐬 ➪ [{views}]({link})**.♫.☆ ¸¸♡¸¸ ✭
+● 🕹 **ᴠɪᴇᴡ ➪ [{views}]({link})**.♫.☆ ¸¸♡¸¸ ✭
 •✰˚♫. * ● ¸ .★ .¸¸♡¸¸★ :●. ♫°☆ ¸. ● .. ✫
-● ⏰ **𝐔𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐎𝐧 ➪ [{published}]({link})**. ✰
+● ⏰ **ᴜᴘʟᴏᴀᴅᴇᴅ ᴏɴ ➪ [{published}]({link})**. ✰
 ° °☆ 　¸. ● . .¸¸♡¸¸.★　★✰˚♫. ○  ✦ .✵
-● 📺 **𝐂𝐡𝐚𝐧𝐧𝐞𝐥 ➪ [{channel}]({link})**★
+● 📺 **ᴄʜᴀɴɴᴇʟ ➪ [{channel}]({link})**★
 •✰˚♫. * ● ¸ . ★ .¸¸♡¸¸★ :●. *°☆ ¸. ● .. ✧
-● 🗯 **𝐂𝐡𝐚𝐧𝐧𝐞𝐥 𝐋𝐢𝐧𝐤 ➪ [ᴠɪsɪᴛ ᴄʜᴀɴɴᴇʟ]({channellink})**✰
+● 🗯 **ᴄʜᴀɴɴᴇʟ ʟɪɴᴋ ➪ [ᴠɪsɪᴛ ᴄʜᴀɴɴᴇʟ]({channellink})**✰
 •✰˚♫. * ● ¸ . ★ .¸¸♡¸¸★ :●. *°☆ ¸. ● .. ★
-● 📡 **𝐋𝐢𝐧𝐤 ➪ [ᴡᴀᴛᴄʜ ᴏɴ ʏᴏᴜᴛᴜʙᴇ]({link})**☆.♡
+● 📡 **ʟɪɴᴋ ➪ [ᴡᴀᴛᴄʜ ᴏɴ ʏᴏᴜᴛᴜʙᴇ]({link})**☆.♡
 •✰˚♫. * ● ¸ . ★ .¸¸♡¸¸★ :●. *°☆ ¸. ● .. ✷
 
-☆............𝙱𝚈 » [𝚅𝙸𝙿 𝙱𝙾𝚈](https://t.me/the_vip_boy)............☆"""
+☆............𝙱𝚈 » [ᴠᴇɴᴏᴍ](https://t.me/its_arryan)............☆"""
             key = InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            text="🥀𝐘𝐎𝐔𝐓𝐔𝐁𝐄🥀", url=f"{link}"
+                            text="🥀ʏᴏᴜᴛᴜʙᴇ🥀", url=f"{link}"
                         ),
                         InlineKeyboardButton(
-                            text="🏓𝐒𝐔𝐏𝐏𝐎𝐑𝐓🏓", url="https://t.me/TG_FRIENDSS"
+                            text="🏓sᴜᴘᴘᴏʀᴛ🏓", url="https://t.me/venom_world_chatting_club"
                         ),
                     ],
                 ]
@@ -199,7 +199,7 @@ async def start_comm(client, message: Message, _):
                 sender_name = message.from_user.first_name
                 return await app.send_message(
                     config.LOG_GROUP_ID,
-                    f"{message.from_user.mention} 𝐉𝐮𝐬𝐭 𝐒𝐭𝐚𝐫𝐭𝐞𝐝 𝐁𝐨𝐭 𝐓𝐨 𝐂𝐡𝐞𝐜𝐤<code>𝐒𝐨𝐧𝐠 𝐈𝐧𝐟𝐨</code>\n\n**𝐔𝐬𝐞𝐫 𝐈𝐝:-** {sender_id}\n**𝐍𝐚𝐦𝐞:-** {sender_name}",
+                    f"{message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ᴛᴏ ᴄʜᴇᴄᴋ<code>sᴏɴɢ ɪɴғᴏ</code>\n\n**ᴜsᴇʀ-ɪᴅ:-** {sender_id}\n**ɴᴀᴍᴇ:-** {sender_name}",
                 )
     else:
         try:
@@ -232,7 +232,7 @@ async def start_comm(client, message: Message, _):
             sender_name = message.from_user.first_name
             return await app.send_message(
                 config.LOG_GROUP_ID,
-                f"{message.from_user.mention} 𝐉𝐮𝐬𝐭 𝐒𝐭𝐚𝐫𝐭𝐞𝐝 𝐕𝐢𝐩 𝐁𝐨𝐭😍.\n\n**𝐔𝐬𝐞𝐫 𝐈𝐝:-** {sender_id}\n**𝐍𝐚𝐦𝐞:-** {sender_name}",
+                f"{message.from_user.mention} ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ʙᴏᴛ😍.\n\n**ᴜsᴇʀ-ɪᴅ:-** {sender_id}\n**ɴᴀᴍᴇ:-** {sender_name}",
             )
 
 
